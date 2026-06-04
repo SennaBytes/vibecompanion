@@ -1,0 +1,2 @@
+# vibecompanion
+SCHOOL ASSIGNMENT CREACOD
