@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kat To-Do 🐱</title>
+
+<style>
+body {
+    font-family: system-ui, Arial, sans-serif;
+    background: #f7f7fb;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    color: #222;
+}
+
+/* HEADER */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* CAT */
+#kat {
+    font-size: 80px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* PROGRESS BAR */
+#bar {
+    width: 100%;
+    height: 14px;
+    border: 2px solid #bbb;
+    border-radius: 999px;
+    overflow: hidden;
+    background: transparent;
+    margin-bottom: 20px;
+}
+
+#bar-fill {
+    height: 100%;
+    width: 0%;
+    background: #7c5cff;
+    transition: 0.3s ease;
+}
+
+/* INPUT AREA */
+.input-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    flex: 1;
+    min-width: 120px;
+    background: white;
+}
+
+input:focus {
+    border-color: #7c5cff;
+}
+
+/* BUTTON */
+button {
+    padding: 10px 14px;
+    border: 2px solid #7c5cff;
+    background: transparent;
+    color: #7c5cff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #7c5cff;
+    color: white;
+}
+
+/* TASK LIST */
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    margin: 10px 0;
+    padding: 12px 14px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s;
+}
+
+li:hover {
+    border-color: #aaa;
+}
+
+/* STATES */
+.overdue {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+    font-weight: 600;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #999;
+    border-color: #cfcfcf;
+}
+
+/* DELETE BUTTON */
+button.delete {
+    border: 2px solid #ff4d4d;
+    color: #ff4d4d;
+    background: transparent;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+button.delete:hover {
+    background: #ff4d4d;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🐱 Kat To-Do</h1>
+
+<div id="kat">😺</div>
+
+<div id="bar">
+  <div id="bar-fill"></div>
+</div>
+
+<div class="input-box">
+    <input type="text" id="task" placeholder="Nieuwe taak">
+    <input type="date" id="date">
+    <input type="time" id="time">
+    <button onclick="addTask()">Toevoegen</button>
+</div>
+
+<ul id="list"></ul>
+
+<script>
+
+function addTask() {
+
+    const task = document.getElementById("task").value.trim();
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+
+    if (!task) return;
+
+    const li = document.createElement("li");
+
+    li.dataset.date = date;
+    li.dataset.time = time;
+
+    li.innerHTML = `
+        <span>
+            <input type="checkbox" onchange="updateUI()">
+            ${task}
+            <small style="color:#777">
+                ${date || "geen datum"} ${time || ""}
+            </small>
+        </span>
+
+        <button class="delete" onclick="this.parentElement.remove(); updateUI();">
+            delete
+        </button>
+    `;
+
+    document.getElementById("list").appendChild(li);
+
+    document.getElementById("task").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("time").value = "";
+
+    updateUI();
+}
+
+
+function updateUI() {
+
+    const now = new Date();
+    const tasks = document.querySelectorAll("#list li");
+
+    let done = 0;
+
+    tasks.forEach(t => {
+
+        const cb = t.querySelector("input");
+
+        let due;
+
+        const date = t.dataset.date;
+        const time = t.dataset.time;
+
+        if (!date) {
+            due = new Date();
+            due.setHours(12,0,0,0);
+        } else {
+            due = new Date(date + "T" + (time || "00:00"));
+        }
+
+        t.classList.remove("overdue","done");
+
+        if (cb.checked) {
+            done++;
+            t.classList.add("done");
+        } else if (now > due) {
+            t.classList.add("overdue");
+        }
+    });
+
+    const total = tasks.length;
+    const percent = total ? (done / total) * 100 : 0;
+
+    document.getElementById("bar-fill").style.width = percent + "%";
+
+    const cat = document.getElementById("kat");
+
+    if (total === 0) cat.textContent = "😺";
+    else if (percent === 100) cat.textContent = "😻";
+    else if (percent >= 75) cat.textContent = "😸";
+    else if (percent >= 50) cat.textContent = "😺";
+    else if (percent >= 25) cat.textContent = "😿";
+    else cat.textContent = "😭";
+}
+
+</script>
+
+</body>
+</html>

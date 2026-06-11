@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neko Rest Companion</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="cat-stage" aria-label="Cat companion">
+        <div class="sun" aria-hidden="true"></div>
+        <div class="torii" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="cloud cloud-one" aria-hidden="true"></div>
+        <div class="cloud cloud-two" aria-hidden="true"></div>
+        <div class="breath-guide" aria-hidden="true"></div>
+
+        <div class="cat-card">
+          <div class="cat-name-row">
+            <div>
+              <p class="eyebrow">やすらぎ neko</p>
+              <h1 id="catNameTitle">Your Cat</h1>
+            </div>
+            <button class="icon-button" id="editNameButton" type="button" aria-label="Edit cat name" title="Edit name">
+              ✎
+            </button>
+          </div>
+
+          <div class="cat-portrait" id="catPortrait" aria-live="polite">
+            <div class="calm-effects" id="calmEffects" aria-hidden="true"></div>
+            <div class="drop-hint" id="dropHint">Drop care here</div>
+            <div class="mood-bubble" id="moodBubble">Name me!</div>
+            <div class="cat">
+              <div class="ear ear-left"></div>
+              <div class="ear ear-right"></div>
+              <div class="head">
+                <div class="stripe stripe-left"></div>
+                <div class="stripe stripe-mid"></div>
+                <div class="stripe stripe-right"></div>
+                <div class="eye eye-left"></div>
+                <div class="eye eye-right"></div>
+                <div class="cheek cheek-left"></div>
+                <div class="cheek cheek-right"></div>
+                <div class="nose"></div>
+                <div class="mouth"></div>
+                <div class="whiskers whiskers-left"></div>
+                <div class="whiskers whiskers-right"></div>
+              </div>
+              <div class="body">
+                <div class="paw paw-left"></div>
+                <div class="paw paw-right"></div>
+                <div class="tail"></div>
+              </div>
+            </div>
+            <div class="floor-pattern" aria-hidden="true"></div>
+          </div>
+
+          <div class="care-actions cat-care-tray">
+            <button
+              class="care-token"
+              id="feedButton"
+              type="button"
+              draggable="false"
+              data-care="feed"
+              aria-label="Drag onigiri to the cat or press to feed"
+            >
+              <span class="token-icon">🍙</span>
+              <span>Drag food</span>
+            </button>
+            <button
+              class="care-token"
+              id="waterButton"
+              type="button"
+              draggable="false"
+              data-care="water"
+              aria-label="Drag water to the cat or press to give water"
+            >
+              <span class="token-icon">💧</span>
+              <span>Drag water</span>
+            </button>
+          </div>
+
+          <form class="name-form" id="nameForm">
+            <label for="catNameInput">Cat name</label>
+            <div class="field-row">
+              <input id="catNameInput" name="catName" maxlength="18" placeholder="Mochi" autocomplete="off" />
+              <button type="submit">Save</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="control-panel" aria-label="Cat rest and care controls">
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span>Login days</span>
+            <strong id="loginDays">1</strong>
+          </article>
+          <article class="stat-card">
+            <span>Streak</span>
+            <strong id="loginStreak">1</strong>
+          </article>
+          <article class="stat-card">
+            <span>Food</span>
+            <strong id="foodLevel">70%</strong>
+          </article>
+          <article class="stat-card">
+            <span>Water</span>
+            <strong id="waterLevel">70%</strong>
+          </article>
+        </div>
+
+        <article class="task-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">today's rest task</p>
+              <h2 id="taskTitle">Loading task...</h2>
+            </div>
+            <span class="task-status" id="taskStatus">Waiting</span>
+          </div>
+          <p id="taskText"></p>
+          <div class="task-actions">
+            <button class="primary-action" id="completeTaskButton" type="button">I Did This</button>
+            <button class="quiet-action" id="missTaskButton" type="button">I Missed It</button>
+          </div>
+        </article>
+
+        <article class="care-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">care</p>
+              <h2>Give your mind a quiet minute</h2>
+            </div>
+          </div>
+          <div class="meters">
+            <label>
+              <span>Hungry</span>
+              <meter id="foodMeter" min="0" max="100" value="70"></meter>
+            </label>
+            <label>
+              <span>Thirsty</span>
+              <meter id="waterMeter" min="0" max="100" value="70"></meter>
+            </label>
+          </div>
+          <p class="care-note">Drag food or water onto the cat, then let the calm effect finish.</p>
+        </article>
+
+        <article class="message-panel">
+          <p id="catMessage">Welcome back. Take one slow breath with your cat.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
