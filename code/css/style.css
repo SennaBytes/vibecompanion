@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: url("/assets/img/fireplace\(cr-tenor\).gif") center/cover no-repeat;
+}
+
+.sprite {
+  position: absolute;
+  top: 200px;
+  left: 300px;
+
+  width: 100px;
+  height: 100px;
+
+  background: red; /* tijdelijk zichtbaar */
+  z-index: 10;
+}
+
+
+main {.
+    ;
+}
+
+.footer {
+    height: 10vh;
+    width: 100%;
+}
