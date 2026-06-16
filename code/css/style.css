@@ -24,4 +24,5 @@ main {.
 .footer {
     height: 10vh;
     width: 100%;
+    z-index: 100;
 }
