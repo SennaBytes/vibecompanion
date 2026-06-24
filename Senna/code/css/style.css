@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background: url("/Senna/assets/img/gif/fireplace\(cr-tenor\).gif") center/cover no-repeat;
+}
+
+.sprite {
+  position: absolute;
+  top: 200px;
+  left: 300px;
+
+  width: 100px;
+  height: 100px;
+
+  background: #ff0000; /* tijdelijk zichtbaar */
+  border: 2px solid #fff;
+  z-index: 10;
+}
+
+
+main {
+  z-index: 1;
+  flex-grow: 1;
+}
+
+.footer {
+    height: 10vh;
+    width: 100%;
+    z-index: 100;
+}
+
+
+
+/* sprite */
+.sprite {
+  
+}
+@keyframes wiggle {
+  1%, 100% {transform: translate-x(-10px)
+    animation-timing-function:ease-in-out;}
+
+  50% {transform: translate-x(10px);}
+  
+;}
