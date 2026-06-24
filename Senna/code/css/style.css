@@ -1,49 +1,111 @@
+/* ==================
+   PRE STYLING
+================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none;
+  -webkit-user-drag: none;
 }
+
+/* ==================
+    PAGE STYLING
+================== */
 
 body {
+  overflow: hidden;
   height: 100vh;
-  background: url("/Senna/assets/img/gif/fireplace\(cr-tenor\).gif") center/cover no-repeat;
+  width: 100vw;
+  background: url("/Senna/assets/img/fireplace\(cr-tenor\).gif") center/cover no-repeat;
 }
 
-.sprite {
+
+
+/* =========================
+    AUDIO CONTROL STYLING
+========================= */
+
+/* fire audio - control styling */
+
+.fire-audio::-webkit-media-controls-panel {
+  background: #470707;
+}
+
+.fire-audio {
   position: absolute;
-  top: 200px;
-  left: 300px;
-
-  width: 100px;
-  height: 100px;
-
-  background: #ff0000; /* tijdelijk zichtbaar */
-  border: 2px solid #fff;
-  z-index: 10;
-}
-
-
-main {
-  z-index: 1;
-  flex-grow: 1;
-}
-
-.footer {
-    height: 10vh;
-    width: 100%;
-    z-index: 100;
+  bottom: 100px;
+  right: 100px;
 }
 
 
 
-/* sprite */
-.sprite {
-  
-}
-@keyframes wiggle {
-  1%, 100% {transform: translate-x(-10px)
-    animation-timing-function:ease-in-out;}
+/* ==================
+    SPRITE STYLING
+================== */
 
-  50% {transform: translate-x(10px);}
-  
+/* positioning */
+:root {
+  /* fire sprite position */
+  --fire-sprite-X: 500px;
+  --fire-sprite-Y: 200px;
+
+  /* fire sprite arm left position */
+  --fire-sprite-arm-leftX: calc(var(--fire-sprite-X) - 100px);
+  --fire-sprite-arm-leftY: calc(var(--fire-sprite-Y) - 100px);
+
+  /* fire sprite arm right position */
+  --fire-sprite-arm-rightX: calc(var(--fire-sprite-X) + 100px);
+  --fire-sprite-arm-rightY: calc(var(--fire-sprite-Y) - 100px);
+}
+
+/* mouse normal */
+.fire-sprite {
+  position: absolute;
+  left: var(--fire-sprite-X);
+  top: var(--fire-sprite-Y);
+
+  width: 10%;
+  height: auto;
+
+  z-index: 100;
+
+  animation: idle 5s infinite;
+}
+
+/* mouse on hover */
+.fire-sprite:hover {
+  cursor: pointer;
+}
+
+/* mouse on click */
+.fire-sprite:active {
+  cursor: grabbing;
+}
+
+
+
+/* ==================
+  SPRITE KEYFRAME ANIMATIONS
+================== */
+
+
+/* idle */
+@keyframes idle {
+  0%, 100% {
+    transform: translateX(-10px) translateY(0) rotateZ(0deg);
+  }
+
+  20% {
+    transform: translateX(-5px) translateY(50px) rotateZ(5deg);
+  }
+
+  50% {
+    transform: translateX(10px) translateY(0) rotateZ(0deg);
+  }
+
+  70% {
+    transform: translateX(5px) translateY(50px) rotateZ(-5deg);
+  }
 ;}
+
