@@ -42,7 +42,13 @@ main {
 }
 @keyframes wiggle {
   1%, 100% {transform: translate-x(-10px)
+<<<<<<< HEAD
     animation-timing-function:ease-in-out;
   50% {transform: translate-x(10px);
+=======
+    animation-timing-function:ease-in-out;}
+
+  50% {transform: translate-x(10px);}
+>>>>>>> 87b3a87 (Senna:)
   
 ;}
