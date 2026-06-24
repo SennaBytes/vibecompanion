@@ -3,27 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMPANION</title>
+    <title>FIRE SPRITE COMPANION</title>
 
-    <link rel="stylesheet" href="./code/css/style.css">
+    <link rel="stylesheet" href="./Senna/code/css/style.css">
 </head>
 <body>
-    <!------------------ MAIN start -------------------->
-    <main class="main">
-    <!------------------ Sprite start -------------------->
-        <div class="spriteContainer">
-            <img src="./assets/img/svg/sprite.svg" alt="sprite">
-        </div>
-    <!------------------ Sprite start -------------------->
-    </main>
-    <!------------------ MAIN end ---------------------->
-    
-    <!------------------ FOOTER start ------------------>
-    <footer class="footer">
-        <audio autoplay loop>
-            <source src="./assets/audio/fireplace-loop-crackling.mp3" type="audio/mpeg">
+    <!------------------ BODY start ---------------------------->
+
+
+        <!------------------ SPRITE start ---------------------->
+            <!-----Sprite Arm Left start -------->
+            <img 
+                class="fire-sprite-arm-left" 
+                src="./Senna/assets/img/svg/fire-sprite/fire-sprite-arm-left.svg" 
+                alt="Fire Sprite"
+            >
+            <!----- Sprite Arm Left end --------->
+
+            <!-----Sprite Body start ------------>
+            <img 
+                class="fire-sprite" 
+                src="./Senna/assets/img/svg/fire-sprite/fire-sprite.svg" 
+                alt="Fire Sprite"
+            >
+            <!----- Sprite Body end ------------->
+
+            <!----- Sprite Arm Right start ------->
+            <img 
+                class="fire-sprite-arm-right" 
+                src="./Senna/assets/img/svg/fire-sprite/fire-sprite-arm-right.svg" 
+                alt="Fire Sprite"
+            >
+            <!----- Sprite Arm Right end --------->
+        <!------------------ SPRITE end ----------------------->
+
+        <!------------------ TEXT-CLOUD start ----------------->
+            <img 
+                class="text-cloud" 
+                src="./Senna/assets/img/svg/text-cloud-smoke/text-cloud.svg" 
+                alt="Text Cloud"
+            >
+        <!------------------ TEXT-CLOUD end ------------------->
+
+        <!-------------- AUDIO fire-sprite start -------------->
+        <audio
+            class="fire-audio" 
+            autoplay
+            controls 
+            loop
+        >
+                <source
+                src="./Senna/assets/audio/fireplace-loop-crackling.mp3"
+                type="audio/mpeg">
+                ⓘ Your browser does not support audio.
         </audio>
-    </footer>
-    <!------------------ FOOTER end -------------------->
+        <!-------------- AUDIO fire-sprite end --------------->
+
+
+    <!------------------ BODY end ---------------------------->
 </body>
 </html>
