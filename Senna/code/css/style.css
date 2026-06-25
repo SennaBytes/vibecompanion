@@ -54,6 +54,15 @@ body {
   --text-cloud_Y: calc(var(--fire-sprite_Y) - 150px);
   --text-cloud_size: calc(var(--fire-sprite_size-body) + 150px);
 
+  /* fire-message */
+  --text-cloud_X: calc(var(--fire-sprite_X) + 130px);
+  --text-cloud_Y: calc(var(--fire-sprite_Y) - 150px);
+ 
+
+  --text-cloud_fire-message_H: calc(var(--text-cloud_size) - 120px);
+  --text-cloud_fire-message_W: calc(var(--text-cloud_size) - 80px);
+
+
 
   /*--------- ANIMATION TIME ---------*/
   /* idle */
@@ -68,6 +77,19 @@ body {
 
   /* text cloud */
   --index-layer_text-cloud: var(--index-layer_sprite-arms);
+}
+
+
+/*--------- cursor styling ---------*/
+
+/* hover */
+.firedSprite:hover {
+  cursor: pointer;
+}
+
+/* click */
+.firedSprite:active {
+  cursor: grabbing;
 }
 
 
@@ -142,24 +164,6 @@ body {
 
 
 
-/*--------- cursor styling ---------*/
-
-/* hover */
-.fire-sprite:hover,
-.fire-sprite-arm-left:hover,
-.fire-sprite-arm-right:hover {
-  cursor: pointer;
-}
-
-/* click */
-.fire-sprite:active,
-.fire-sprite-arm-left:active,
-.fire-sprite-arm-right:active {
-  cursor: grabbing;
-}
-
-
-
 /* ===========================
   SPRITE KEYFRAME ANIMATIONS
 =========================== */
@@ -181,7 +185,7 @@ body {
   70% {
     transform: translateX(5px) translateY(50px) rotateZ(-5deg);
   }
-;}
+};
 
 
 
@@ -189,17 +193,47 @@ body {
     TEXT CLOUD STYLING
 =========================== */
 
-.text-cloud, .messageContent {
-  position: absolute;
+@import url('https://fonts.googleapis.com/css2?family=Macondo+Swash+Caps&display=swap');
+
+.text-cloud {
   left: var(--text-cloud_X);
   top: var(--text-cloud_Y);
-  
+
   width: var(--text-cloud_size);
   height: auto;
 
   animation: var(--animation_idle);
 }
 
-.messageContent {
-   background-color: #470707;
+
+.text-cloud,
+.fire-message {
+  position: absolute;
+  
+  left: calc(var(--text-cloud_X));
+  top: var(--text-cloud_Y);
+
+  width: var(--text-cloud_size);
+  height: auto;
+
+  animation: var(--animation_idle);
+}
+
+.fire-message {
+  font-family: 'Macondo Swash Caps', cursive;
+  font-size: 12px;
+  text-shadow: 2px 2px 3px #00000080;
+
+  width: var(--text-cloud_fire-message_W) !important;
+  height: var(--text-cloud_fire-message_H) !important;
+  margin:  20px 50px;
+  padding: 5px;
+
+  /* background-color: #9100ff80; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  z-index: var(--index-layer_text-cloud);
 }
