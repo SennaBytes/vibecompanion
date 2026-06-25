@@ -62,9 +62,9 @@ body {
 
   /*--------- INDEX LAYERS ---------*/
   /* fire sprite */
-  --index-layer_sprite-arms: 100;
-  --index-layer_sprite: 10;
-  --index-layer-bg: 0;
+  --index-layer_messageContent: 10;
+  --index-layer_sprite-arms: 5;
+  --index-layer_sprite: 0;
 
   /* text cloud */
   --index-layer_text-cloud: var(--index-layer_sprite-arms);
@@ -189,7 +189,7 @@ body {
     TEXT CLOUD STYLING
 =========================== */
 
-.text-cloud {
+.text-cloud, .messageContent {
   position: absolute;
   left: var(--text-cloud_X);
   top: var(--text-cloud_Y);
@@ -198,4 +198,8 @@ body {
   height: auto;
 
   animation: var(--animation_idle);
+}
+
+.messageContent {
+   background-color: #470707;
 }

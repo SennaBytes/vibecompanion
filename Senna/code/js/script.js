@@ -2,22 +2,18 @@
 
 //----------------- SPRITE  -----------------//
 
-// individual movable parts fire-sprite(-arms L+R):
-const fireSpriteBody = document.querySelector(".fire-sprite");
-const fireSpriteArmL = document.querySelector(".fire-sprite-arm-left");
-const fireSpriteArmR = document.querySelector(".fire-sprite-arm-right");
-
-//------------- complete sprite -------------//
-const fireSprite = fireSpriteBody + fireSpriteArmL + fireSpriteArmR;
+// selects special js class in all sprite elements
+const firedSprite = document.querySelector(".firedSprite");
 
 
 
 //--------------- TEXT CLOUD ---------------//
+
 // locate text path (cloud)
 const textCloud = document.querySelector(".text-cloud");
 
 
-// messages / jokes
+// fire  messages / jokes
 const messages = [
     "The temperature is rising...",
     "You're on fire!",
@@ -25,16 +21,18 @@ const messages = [
 ];
 
 // messages content
-let messageContent = document.querySelector("");
+let messageContent = document.querySelector(".messageContent");
+
 
 
 
 //====================== FUNCTIONS ======================//
 
 // fire-sprite, onclick random message pop up:
-fireSprite.addEventListener("click", function firedSprite() {
-    // joke output:
-   textCloud.innerHTML = messageContent;
+firedSprite.addEventListener("click", function firedSprite() {
+    // output:
+    window.alert("hi");
+//    textCloud.innerHTML = messageContent[1];
 });
 
 
