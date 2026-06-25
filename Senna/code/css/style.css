@@ -189,17 +189,29 @@ body {
     TEXT CLOUD STYLING
 =========================== */
 
-.text-cloud, .messageContent {
+@import url('https://fonts.googleapis.com/css2?family=Macondo+Swash+Caps&display=swap');
+
+.text-cloud, .fireMessage {
   position: absolute;
   left: var(--text-cloud_X);
   top: var(--text-cloud_Y);
-  
+  /* --text-cloud_fire-message_X */
+
   width: var(--text-cloud_size);
   height: auto;
 
   animation: var(--animation_idle);
 }
 
-.messageContent {
-   background-color: #470707;
+.fireMessage {
+    font-family: 'Macondo Swash Caps', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    height: 200px;
+
+    text-shadow: 2px 2px 3px #00000080;
+    
 }
