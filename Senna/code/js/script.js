@@ -1,17 +1,9 @@
 //====================== VARIABLES ======================//
-//----------------- SPRITE  -----------------//
 
-// selects special js class in all sprite elements
 const firedSprite = document.querySelectorAll(".firedSprite");
 
+const fireMessage = document.querySelector(".fire-message");
 
-//--------------- TEXT CLOUD ---------------//
-
-// locate text path (cloud)
-const fireMessage = document.querySelector(".fireMessage");
-
-
-// fire  messages / jokes
 const arrMessages = [
     "The temperature is rising...",
     "You're on fire!",
@@ -21,24 +13,13 @@ const arrMessages = [
 ];
 
 
-
 //====================== FUNCTIONS ======================//
 
-// for each sprite part
-arrMessages.forEach(
-);
-
-
-// fire-sprite, onclick random message pop up:
-firedSprite.addEventListener("click", function firedSprite() {
-    // output:
-    window.alert("hi");
-        // randomizer index arrMessages
+// fire-sprite + text-cloud, onclick random message pop up:
+firedSprite.forEach(function(sprite) {
+    sprite.addEventListener("click", function firedSprite() {
         const messageContent = Math.floor(Math.random() * arrMessages.length);
         fireMessage.innerHTML = arrMessages[messageContent];
+
+    });
 });
-
-
-console.log(firedSprite);
-
-
