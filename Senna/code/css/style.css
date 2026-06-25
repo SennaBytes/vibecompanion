@@ -51,13 +51,13 @@ body {
   /*--------- TEXT CLOUD ---------*/
   /* text cloud */
   --text-cloud_X: calc(var(--fire-sprite_X) + 130px);
-  --text-cloud_Y: calc(var(--fire-sprite_Y) - 80px);
-  --text-cloud_size: calc(var(--fire-sprite_size-body) + 80px);
+  --text-cloud_Y: calc(var(--fire-sprite_Y) - 150px);
+  --text-cloud_size: calc(var(--fire-sprite_size-body) + 150px);
 
 
   /*--------- ANIMATION TIME ---------*/
   /* idle */
-  --animation-time: idle 5s infinite;
+  --animation_idle: idle 5s infinite;
 
 
   /*--------- INDEX LAYERS ---------*/
@@ -107,7 +107,7 @@ body {
 
   z-index: var(--index-layer_sprite);
 
-  animation: var(--animation-time);
+  animation: var(--animation_idle);
 }
 
 /* fire sprite arms */
@@ -123,7 +123,7 @@ body {
 
   z-index: var(--index-layer_sprite-arms);
 
-  animation: var(--animation-time);
+  animation: var(--animation_idle);
 }
 
 /* right  */
@@ -137,7 +137,7 @@ body {
 
   z-index: var(--index-layer_sprite-arms);
 
-  animation: var(--animation-time);
+  animation: var(--animation_idle);
 }
 
 
@@ -196,4 +196,6 @@ body {
   
   width: var(--text-cloud_size);
   height: auto;
+
+  animation: var(--animation_idle);
 }
