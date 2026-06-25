@@ -51,20 +51,20 @@ body {
   /*--------- TEXT CLOUD ---------*/
   /* text cloud */
   --text-cloud_X: calc(var(--fire-sprite_X) + 130px);
-  --text-cloud_Y: calc(var(--fire-sprite_Y) - 80px);
-  --text-cloud_size: calc(var(--fire-sprite_size-body) + 80px);
+  --text-cloud_Y: calc(var(--fire-sprite_Y) - 150px);
+  --text-cloud_size: calc(var(--fire-sprite_size-body) + 150px);
 
 
   /*--------- ANIMATION TIME ---------*/
   /* idle */
-  --animation-time: idle 5s infinite;
+  --animation_idle: idle 5s infinite;
 
 
   /*--------- INDEX LAYERS ---------*/
   /* fire sprite */
-  --index-layer_sprite-arms: 100;
-  --index-layer_sprite: 10;
-  --index-layer-bg: 0;
+  --index-layer_messageContent: 10;
+  --index-layer_sprite-arms: 5;
+  --index-layer_sprite: 0;
 
   /* text cloud */
   --index-layer_text-cloud: var(--index-layer_sprite-arms);
@@ -107,7 +107,7 @@ body {
 
   z-index: var(--index-layer_sprite);
 
-  animation: var(--animation-time);
+  animation: var(--animation_idle);
 }
 
 /* fire sprite arms */
@@ -123,7 +123,7 @@ body {
 
   z-index: var(--index-layer_sprite-arms);
 
-  animation: var(--animation-time);
+  animation: var(--animation_idle);
 }
 
 /* right  */
@@ -137,7 +137,7 @@ body {
 
   z-index: var(--index-layer_sprite-arms);
 
-  animation: var(--animation-time);
+  animation: var(--animation_idle);
 }
 
 
@@ -189,11 +189,17 @@ body {
     TEXT CLOUD STYLING
 =========================== */
 
-.text-cloud {
+.text-cloud, .messageContent {
   position: absolute;
   left: var(--text-cloud_X);
   top: var(--text-cloud_Y);
   
   width: var(--text-cloud_size);
   height: auto;
+
+  animation: var(--animation_idle);
+}
+
+.messageContent {
+   background-color: #470707;
 }
