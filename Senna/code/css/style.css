@@ -17,6 +17,7 @@
 ================== */
 
 body {
+  position: relative;
   overflow: hidden;
   height: 100vh;
   width: 100vw;
@@ -35,7 +36,7 @@ body {
   --fire-sprite_size-arms: calc(var(--fire-sprite_size-body) - 50%);
 
   /* fire sprite position */
-  --fire-sprite_X: 500px;
+  --fire-sprite_X: 30%;
   --fire-sprite_Y: 200px;
 
   /* fire sprite arm left position */
@@ -49,9 +50,9 @@ body {
   
   /*--------- TEXT CLOUD ---------*/
   /* text cloud */
-  --text-cloud_X: calc(var(--fire-sprite_X) - 10px);
-  --text-cloud_Y: calc(var(--fire-sprite_Y) - 10px);
-  --text-cloud_size: calc(var(--fire-sprite_size-body) - 20%);
+  --text-cloud_X: calc(var(--fire-sprite_X) + 130px);
+  --text-cloud_Y: calc(var(--fire-sprite_Y) - 80px);
+  --text-cloud_size: calc(var(--fire-sprite_size-body) + 80px);
 
 
   /*--------- ANIMATION TIME ---------*/
@@ -189,7 +190,7 @@ body {
 =========================== */
 
 .text-cloud {
-  display: absolute;
+  position: absolute;
   left: var(--text-cloud_X);
   top: var(--text-cloud_Y);
   
