@@ -128,12 +128,16 @@ body {
 /*--------- cursor styling ---------*/
 
 /* hover */
-.fire-sprite:hover {
+.fire-sprite:hover,
+.fire-sprite-arm-left:hover,
+.fire-sprite-arm-right:hover {
   cursor: pointer;
 }
 
 /* click */
-.fire-sprite:active {
+.fire-sprite:active,
+.fire-sprite-arm-left:active,
+.fire-sprite-arm-right:active {
   cursor: grabbing;
 }
 
@@ -141,7 +145,6 @@ body {
 /* ===========================
   SPRITE KEYFRAME ANIMATIONS
 +=========================== */
-
 
 /* idle */
 @keyframes idle {
@@ -161,6 +164,7 @@ body {
     transform: translateX(5px) translateY(50px) rotateZ(-5deg);
   }
 }
+
 
 /* ===========================
     TEXT CLOUD STYLING
