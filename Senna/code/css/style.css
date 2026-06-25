@@ -1,4 +1,4 @@
-/* ==================
+CRC VC CSS   /* ==================
    PRE STYLING
 ================== */
 * {
@@ -17,10 +17,12 @@ body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-  background: url("/Senna/assets/img/bg/fireplace(cr-tenor).gif") center/cover no-repeat;
+  background: url("/Senna/assets/img//bg/fireplace(cr-tenor).gif") center/cover no-repeat;
 }
 
-
+/* ==================
+    VAR STYLING
+================== */
 :root {
   /*--------- FIRE SPRITE ---------*/
   /* fire sprite size */
@@ -32,24 +34,37 @@ body {
   --fire-sprite_Y: 200px;
 
   /* fire sprite arm left position */
-  --fire-sprite-arm-left_X: calc(var(--fire-sprite_X) - 100px);
-  --fire-sprite-arm-left_Y: calc(var(--fire-sprite_Y) + 100px);
+  --fire-sprite-arm-left_X: calc(var(--fire-sprite_X) - 20px);
+  --fire-sprite-arm-left_Y: calc(var(--fire-sprite_Y) + 110px);
 
   /* fire sprite arm right position */
-  --fire-sprite-arm-right_X: calc(var(--fire-sprite_X) + 100px);
-  --fire-sprite-arm-right_Y: calc(var(--fire-sprite_Y) - 100px);
+  --fire-sprite-arm-right_X: calc(var(--fire-sprite_X) + 70px);
+  --fire-sprite-arm-right_Y: calc(var(--fire-sprite_Y) + 110px);
+
 
   
   /*--------- TEXT CLOUD ---------*/
-  /* fire sprite text cloud */
-  --text-cloud_X: calc(var(--fire-sprite_X) - 100px);
-  --text-cloud_Y: calc(var(--fire-sprite_Y) - 100px);
-  --text-cloud_size: calc(var(--fire-sprite_size-body) - 50%);
+  /* text cloud */
+  --text-cloud_X: calc(var(--fire-sprite_X) - 10px);
+  --text-cloud_Y: calc(var(--fire-sprite_Y) - 10px);
+  --text-cloud_size: calc(var(--fire-sprite_size-body) - 20%);
+
 
 
   /*--------- ANIMATION TIME ---------*/
-  /* animation timing */
+  /* idle */
   --animation-time: idle 5s infinite;
+
+
+
+  /*--------- INDEX LAYERS ---------*/
+  /* fire sprite */
+  --index-layer_sprite-arms: 100;
+  --index-layer_sprite: 10;
+  --index-layer-bg: 0;
+
+  /* text cloud */
+  --index-layer_text-cloud: var(--index-layer_sprite-arms);
 }
 
 
@@ -88,7 +103,7 @@ body {
   width: 100px;
   height: auto;
 
-    z-index: var(--index-layer-100);
+  z-index: var(--index-layer_sprite);
 
   animation: var(--animation-time);
 }
@@ -104,7 +119,7 @@ body {
   width: 50px;
   height: auto;
 
-    z-index: var(--index-layer-100);
+  z-index: var(--index-layer_sprite-arms);
 
   animation: var(--animation-time);
 }
@@ -118,7 +133,7 @@ body {
   width: 50px;
   height: auto;
 
-    z-index: var(--index-layer-100);
+  z-index: var(--index-layer_sprite-arms);
 
   animation: var(--animation-time);
 }
@@ -144,7 +159,7 @@ body {
 
 /* ===========================
   SPRITE KEYFRAME ANIMATIONS
-+=========================== */
+=========================== */
 
 /* idle */
 @keyframes idle {
@@ -163,9 +178,18 @@ body {
   70% {
     transform: translateX(5px) translateY(50px) rotateZ(-5deg);
   }
-}
+;}
 
 
 /* ===========================
     TEXT CLOUD STYLING
-+=========================== */
+=========================== */
+
+.text-cloud {
+  display: absolute;
+  left: var(--text-cloud_X);
+  top: var(--text-cloud_Y);
+  
+  width: var(--text-cloud_size);
+  height: auto;
+}
